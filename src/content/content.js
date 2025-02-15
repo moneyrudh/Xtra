@@ -7,8 +7,8 @@ const themes = {
         '--text-color-tertiary': '#536471',   // Less important text elements
         
         // Main backgrounds
-        '--background-main': '#0000ff',       // The main black background
-        '--background-second': '#0000ff',     // Recommendations, composer, chat bg
+        '--background-main': '#ffffff',       // The main black background
+        '--background-second': '#ffffff',     // Recommendations, composer, chat bg
         '--background-third': '#eff3f4',      // Third level backgrounds
         
         // Twitter's brand colors 
@@ -72,6 +72,10 @@ function applyTheme(themeName) {
         [data-testid="AppTabBar_More_Menu"] [dir="ltr"] {
             color: var(--text-color-primary) !important;
         }
+
+        [role="navigation"] svg {
+            color: var(--text-color-primary) !important;
+        }
         
         /* Main content area - primary text */
         [data-testid="User-Name"] > div:first-child div[dir="ltr"],
@@ -84,6 +88,44 @@ function applyTheme(themeName) {
             color: var(--text-color-primary) !important;
         }
 
+        div[data-testid="tweetTextarea_0"] span {
+            color: var(--text-color-primary) !important;
+        }
+
+        section[aria-labelledby="accessible-list-1"] h2[role="heading"],
+        section[aria-labelledby="accessible-list-1"] h2[role="heading"] div[dir="ltr"],
+        div[data-testid="trend"] div {
+            color: var(--text-color-primary) !important;
+        }
+
+        div[aria-label="Trending"] form[role="search"] input[data-testid="SearchBox_Search_Input"] {
+            color: var(--text-color-primary) !important;
+        }
+
+        section[aria-labelledby="accessible-list-1"] span[dir="ltr"] {
+            color: var(--text-color-secondary) !important;
+        }
+
+        aside[role="complementary"] div {
+            color: var(--text-color-primary) !important;
+        }
+
+        h1[role="heading"] a[aria-label="X"] svg {
+            color: #FFD700 !important;
+        }
+
+        button[aria-label="Account menu"] div[dir="ltr"] span {
+            color: var(--text-color-primary) !important;
+        }
+
+        button[aria-label="Account menu"] div[tabindex="-1"] div[dir="ltr"] span {
+            color: var(--text-color-secondary) !important;
+        }
+
+        button[aria-label="Account menu"] svg[data-testid="icon-verified"] {
+            color: #FFD700 !important;
+        }
+
         [data-testid="User-Name"] > div:nth-child(2) div[dir="ltr"],
         [role="button"] > div[dir="ltr"]:not([data-testid="tweetText"]) {
             color: var(--text-color-secondary) !important;
@@ -92,36 +134,71 @@ function applyTheme(themeName) {
         /* Secondary text elements */
         time,
         [data-testid="socialContext"],
-        [role="button"] .css-146c3p1,
         input::placeholder,
         div[dir="ltr"][aria-hidden="true"],
         div[dir="ltr"][aria-label*="ago"],
-        [data-testid="app-text-transition-container"],
-        div[dir="ltr"].css-146c3p1.r-14j79pv {
+        [data-testid="app-text-transition-container"] {
             color: var(--text-color-tertiary) !important;
         }
 
         /* Different background sections */
         /* Main black background */
-        body {
+        body,
+        main,
+        div[aria-label="Trending"],
+        div[aria-label="Trending"] > div > div > div:not([data-testid*="UserAvatar"]),
+        [role="region"] {
             background-color: var(--background-main) !important;
+        }
+
+        /* SPECIFICALLY FOR THE POST TWEET REGION */
+        div[aria-label="Home timeline"] > div:nth-child(3) div[data-testid="toolBar"],
+        div[aria-label="Home timeline"] > div:nth-child(3) > div > div:nth-child(2),
+        div[aria-label="Home timeline"] > div:nth-child(3) > div > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(2) {
+            background-color: var(--background-main) !important;
+        }
+        
+
+        div[aria-label="Home timeline"] div[data-testid*="UserAvatar"] div {
+            background-color: unset !important;
+        }
+
+        div[data-testid="ScrollSnap-SwipeableList"] {
+            background-color: var(--background-main) !important;
+        }
+
+        /* The search container */
+        form[role="search"] {
+            background-color: var(--background-main) !important;
+        }
+
+        /* The input element itself */
+        form[role="search"] input[data-testid="SearchBox_Search_Input"] {
+            background-color: transparent !important;
+        }
+
+        /* Clear backgrounds from other divs to prevent overlap */
+        form[role="search"] div {
+            background-color: transparent !important;
+        }
+
+        form[role="search"] div[role="listbox"],
+        form[role="search"] div:has(> div[data-testid="typeaheadEmptySearch"]) {
+            background-color: var(--background-main) !important;
+        }
+
+        button[data-testid="tweetButtonInline"] {
+            background-color: unset !important;
+            background-color: var(--background-second) !important;
+            border-color: transparent !important;
         }
 
         /* Side sections, composer, chat backgrounds */
         [data-testid="primaryColumn"],
-        .r-yfoy6g,
         [data-testid="DMDrawer"],
         [role="complementary"],
-        [data-testid="sidebarColumn"],
-        .r-18bvks7 {
+        [data-testid="sidebarColumn"] {
             background-color: var(--background-second) !important;
-        }
-
-        /* Third level backgrounds (replies etc) */
-        .r-1wyyakw,
-        [data-testid="reply"],
-        .r-eff27k {
-            background-color: var(--background-third) !important;
         }
 
         /* Brand colors & interactions */
