@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="../styles/tailwind.min.css" rel="stylesheet">
+        <link href="styles/popup.css" rel="stylesheet">
+    </head>
+    <body class="w-64 p-4 bg-white">
+        <h1 class="text-lg font-bold mb-4">Xtra</h1>
+        
+        <!-- this is where our color scheme buttons will go -->
+        <div id="color-picker" class="space-y-2">
+            <!-- our js will inject buttons here, each looking like:
+            <button class="flex items-center w-full p-2 hover:bg-gray-100 rounded">
+                <span class="flex-1">Default</span>
+                <div class="w-4 h-4 rounded" style="background-color: #ffffff"></div>
+            </button> -->
+        </div>
+
+        <!-- optional: add a subtle footer -->
+        <div class="mt-4 text-xs text-gray-500">
+            Click a theme to apply it
+        </div>
+        
+        <script src="popup.js"></script>
+    </body>
+</html>
