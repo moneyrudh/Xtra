@@ -135,6 +135,31 @@ function applyTheme(themeName) {
             background-color: var(--text-color-primary) !important;
         }
 
+        /* ----- HOVER USER CARD ----- */
+        /* ----- FOLLOW BUTTON ----- */
+        div[data-testid="hoverCardParent"] button[aria-label*="Follow"] span,
+        /* ----- PROFILE SUMMARY SVG ----- */
+        div[data-testid="hoverCardParent"] button[role="button"] > div[dir="ltr"] > svg,
+        /* ----- PROFILE SUMMARY TEXT ----- */
+        div[data-testid="hoverCardParent"] button[role="button"] > div[dir="ltr"] > span {
+            color: var(--text-color-primary) !important;
+        }
+
+        /* ----- HOVER USER CARD BIO ----- */
+        div[data-testid="hoverCardParent"] div[dir="auto"] span:not(a) {
+            color: var(--text-color-primary) !important;
+        }
+
+        /* ----- HOVER USER CARD PRIMARY TEXT ----- */
+        div[data-testid="hoverCardParent"] a[role="link"] div[dir="ltr"] > span {
+            color: var(--text-color-primary) !important;
+        }
+
+        /* ----- HOVER USER CARD FOLLOWER/FOLLOWING COUNT ----- */
+        div[data-testid="hoverCardParent"] div > a[role="link"][dir="ltr"] > span:first-child {
+            color: var(--text-color-primary) !important;
+        }
+
         /* -------------------------------- */
         /* ----- SECONDARY TEXT COLOR ----- */
         /* -------------------------------- */
@@ -160,6 +185,21 @@ function applyTheme(themeName) {
         article[data-testid="tweet"] time,
         article[data-testid="tweet"] [role="link"] svg:not([data-testid="icon-verified"]),
         article[data-testid="tweet"] span[data-testid="app-text-transition-container"] > span > span {
+            color: var(--text-color-secondary) !important;
+        }
+
+        /* ----- HOVER USER CARD USERNAME ----- */
+        div[data-testid="hoverCardParent"] a[role="link"][tabindex="-1"] div[dir="ltr"] span {
+            color: var(--text-color-secondary) !important;
+        }
+
+        /* ----- HOVER USER CARD "FOLLOWS YOU" TEXT ----- */
+        div[data-testid="hoverCardParent"] div > div > div[dir="ltr"] > span {
+            color: var(--text-color-secondary) !important;
+        }
+
+        /* ----- HOVER USER CARD FOLLOWER/FOLLOWING TEXT ----- */
+        div[data-testid="hoverCardParent"] div > a[role="link"][dir="ltr"] > span:nth-child(2) {
             color: var(--text-color-secondary) !important;
         }
 
