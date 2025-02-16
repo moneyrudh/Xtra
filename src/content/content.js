@@ -65,7 +65,11 @@ function applyTheme(themeName) {
             ${Object.entries(theme).map(([key, value]) => `${key}: ${value};`).join(';\n')}
         }
 
-        /* Navigation */
+        /* ------------------------------ */
+        /* ----- PRIMARY TEXT COLOR ----- */
+        /* ------------------------------ */
+
+        /* ----- SIDEBAR NAVIGATION ----- */
         [data-testid*="AppTabBar_"][role="link"] [dir="ltr"],
         [role="navigation"] [dir="ltr"],
         [data-testid*="_tab"] [dir="ltr"],
@@ -73,28 +77,18 @@ function applyTheme(themeName) {
             color: var(--text-color-primary) !important;
         }
 
+        /* ----- SIDEBAR NAVIGATION SVGS ----- */
         [role="navigation"] svg {
             color: var(--text-color-primary) !important;
         }
         
-        /* Main content area - primary text */
-        [data-testid="User-Name"] > div:first-child div[dir="ltr"],
+        /* ----- TRENDING TAB TEXT ----- */
         div[data-testid="trend"] > div:first-child {
             color: var(--text-color-primary) !important;
         }
 
-        [data-testid="tweetText"],
-        article[data-testid="tweet"] {
-            color: var(--text-color-primary) !important;
-        }
-
-        div[data-testid="tweetTextarea_0"] span {
-            color: var(--text-color-primary) !important;
-        }
-
-        section[aria-labelledby="accessible-list-1"] h2[role="heading"],
-        section[aria-labelledby="accessible-list-1"] h2[role="heading"] div[dir="ltr"],
-        div[data-testid="trend"] div {
+        div[aria-label="Trending"] span > span > span,
+        div[aria-label="Trending"] div[dir="ltr"] > span {
             color: var(--text-color-primary) !important;
         }
 
@@ -102,36 +96,78 @@ function applyTheme(themeName) {
             color: var(--text-color-primary) !important;
         }
 
-        section[aria-labelledby="accessible-list-1"] span[dir="ltr"] {
-            color: var(--text-color-secondary) !important;
+        /* ----- LIVE STREAM SIDEBAR NOTIFICATION ----- */
+        div[aria-label="Trending"] h2[role="heading"],
+        section[aria-labelledby="accessible-list-1"] h2[role="heading"],
+        section[aria-labelledby="accessible-list-1"] h2[role="heading"] div[dir="ltr"],
+        div[data-testid="trend"] div {
+            color: var(--text-color-primary) !important;
         }
 
+        /* ----- TWEET USER DISPLAY NAME ----- */
+        [data-testid="User-Name"] > div:first-child div[dir="ltr"] {    
+            color: var(--text-color-primary) !important;
+        }
+
+        /* ----- TWEET ARTICLE TEXT ----- */
+        [data-testid="tweetText"],
+        article[data-testid="tweet"] {
+            color: var(--text-color-primary) !important;
+        }
+
+        /* ----- POST TWEET TEXT AREA HOME PAGE ----- */
+        div[data-testid="tweetTextarea_0"] span {
+            color: var(--text-color-primary) !important;
+        }
+
+        /* ----- "WHO TO FOLLOW" SIDEBAR ----- */
         aside[role="complementary"] div {
             color: var(--text-color-primary) !important;
         }
 
-        h1[role="heading"] a[aria-label="X"] svg {
-            color: #FFD700 !important;
-        }
-
+        /* ----- MAIN USER DISPLAY NAME BOTTOM LEFT SCREEN ----- */
         button[aria-label="Account menu"] div[dir="ltr"] span {
             color: var(--text-color-primary) !important;
         }
 
+        /* ----- "POST" BUTTON ON HOME PAGE ----- */
+        button[data-testid="tweetButtonInline"] {
+            background-color: var(--text-color-primary) !important;
+        }
+
+        /* -------------------------------- */
+        /* ----- SECONDARY TEXT COLOR ----- */
+        /* -------------------------------- */
+
+        /* ----- MAIN USERNAME BOTTOM LEFT SCREEN ----- */
         button[aria-label="Account menu"] div[tabindex="-1"] div[dir="ltr"] span {
             color: var(--text-color-secondary) !important;
         }
 
-        button[aria-label="Account menu"] svg[data-testid="icon-verified"] {
-            color: #FFD700 !important;
+        /* ----- TRENDING TAB SUBTEXT ----- */
+        div[data-testid="trend"] div[dir="ltr"] span[dir="ltr"] span {
+            color: var(--text-color-secondary) !important;
         }
-
-        [data-testid="User-Name"] > div:nth-child(2) div[dir="ltr"],
-        [role="button"] > div[dir="ltr"]:not([data-testid="tweetText"]) {
+        
+        /* ----- ???????????????????? ----- */
+        section[aria-labelledby="accessible-list-1"] span[dir="ltr"] {
             color: var(--text-color-secondary) !important;
         }
 
-        /* Secondary text elements */
+        /* ----- TWEET/POST USERNAME, SVGs, BUTTONS ----- */
+        [data-testid="User-Name"] > div:nth-child(2) div[dir="ltr"],
+        [role="button"] > div[dir="ltr"]:not([data-testid="tweetText"]),
+        article[data-testid="tweet"] time,
+        article[data-testid="tweet"] [role="link"] svg:not([data-testid="icon-verified"]),
+        article[data-testid="tweet"] span[data-testid="app-text-transition-container"] > span > span {
+            color: var(--text-color-secondary) !important;
+        }
+
+        /* ------------------------------- */
+        /* ----- TERTIARY TEXT COLOR ----- */
+        /* ------------------------------- */
+
+        /* TIME, ???, ???, ???, ???, ??? */
         time,
         [data-testid="socialContext"],
         input::placeholder,
@@ -141,8 +177,16 @@ function applyTheme(themeName) {
             color: var(--text-color-tertiary) !important;
         }
 
-        /* Different background sections */
-        /* Main black background */
+        /* ------------------------------------ */
+        /* ----- PRIMARY BACKGROUND COLOR ----- */
+        /* ------------------------------------ */
+
+        /* ----- TRENDING TAB BACKGROUND COLOR ----- */
+        div[aria-label="Trending"] div[data-testid="pill-contents-container"] > div {
+            background-color: var(--background-main) !important;
+        }
+
+        /* ----- MAIN TWITTER BACKGROUND ----- */
         body,
         main,
         div[aria-label="Trending"],
@@ -151,18 +195,19 @@ function applyTheme(themeName) {
             background-color: var(--background-main) !important;
         }
 
-        /* SPECIFICALLY FOR THE POST TWEET REGION */
+        /* ----- SPECIFICALLY FOR POST TWEET REGION ----- */
         div[aria-label="Home timeline"] > div:nth-child(3) div[data-testid="toolBar"],
         div[aria-label="Home timeline"] > div:nth-child(3) > div > div:nth-child(2),
         div[aria-label="Home timeline"] > div:nth-child(3) > div > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(2) {
             background-color: var(--background-main) !important;
         }
-        
 
+        /* ----- UNSETTING MAIN USER'S IMAGE CSS PREVIOUSLY OVERRIDDEN BY CSS ABOVE ----- */
         div[aria-label="Home timeline"] div[data-testid*="UserAvatar"] div {
             background-color: unset !important;
         }
 
+        /* ----- "FOR YOU", "FOLLOWING" ----- */
         div[data-testid="ScrollSnap-SwipeableList"] {
             background-color: var(--background-main) !important;
         }
@@ -172,26 +217,30 @@ function applyTheme(themeName) {
             background-color: var(--background-main) !important;
         }
 
-        /* The input element itself */
+        /* ----- SEARCHBAR INPUT ELEMENT ----- */
         form[role="search"] input[data-testid="SearchBox_Search_Input"] {
             background-color: transparent !important;
         }
 
-        /* Clear backgrounds from other divs to prevent overlap */
+        /* ----- CLEAR NESTED SEARCHBAR BACKGROUND ---- */
         form[role="search"] div {
             background-color: transparent !important;
         }
 
+        /* ----- SEARCHBAR PLACEHOLDER DROPDOWN + ACTUAL RESULTS DROPDOWN ----- */
         form[role="search"] div[role="listbox"],
         form[role="search"] div:has(> div[data-testid="typeaheadEmptySearch"]) {
             background-color: var(--background-main) !important;
         }
 
-        button[data-testid="tweetButtonInline"] {
-            background-color: unset !important;
-            background-color: var(--background-second) !important;
-            border-color: transparent !important;
+        /* ----- "POST" BUTTON FONT COLOR ----- */
+        button[data-testid="tweetButtonInline"] span {
+                color: var(--background-main) !important;
         }
+
+        /* -------------------------------------- */
+        /* ----- SECONDARY BACKGROUND COLOR ----- */
+        /* -------------------------------------- */
 
         /* Side sections, composer, chat backgrounds */
         [data-testid="primaryColumn"],
@@ -199,6 +248,23 @@ function applyTheme(themeName) {
         [role="complementary"],
         [data-testid="sidebarColumn"] {
             background-color: var(--background-second) !important;
+        }
+
+        /* ------------------------------------- */
+        /* ----- TERTIARY BACKGROUND COLOR ----- */
+        /* ------------------------------------- */
+
+
+        /* -------------------------- */
+        /* ----- MISCHELLANEOUS ----- */
+        /* -------------------------- */
+
+        h1[role="heading"] a[aria-label="X"] svg {
+            color: #FFD700 !important;
+        }
+
+        button[aria-label="Account menu"] svg[data-testid="icon-verified"] {
+            color: #FFD700 !important;
         }
 
         /* Brand colors & interactions */
