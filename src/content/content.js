@@ -124,6 +124,19 @@ function applyTheme(themeName) {
             color: var(--text-color-primary) !important;
         }
 
+        /* ----- BOOKMARKS TAB "ALL BOOKMARKS" TEXT ----- */
+        div[aria-label="Home timeline"][tabindex="0"] div > h2[role="heading"] {
+            color: var(--text-color-primary) !important;
+        }
+        /* ----- BOOKMARKS TAB HEADING SVG ----- */
+        div[aria-label="Home timeline"][tabindex="0"] button[role="button"] > div[dir="ltr"] > svg {
+            color: var(--text-color-primary) !important;
+        }
+        /* ----- BOOKMARKS TAB NEW FOLDER BUTTON TEXT ----- */
+        div[aria-label="Home timeline"][tabindex="0"] button[role="button"][data-testid="empty_state_button_text"] > div[dir="ltr"] > span > span {
+            color: var(--background-main) !important;
+        }
+
         /* ----- EXPLORE PAGE RANDOM NOTIFICATION ----- */
         div[data-testid="cellInnerDiv"] > div > div > button[role="button"] > a[role="link"] > h2 > div[dir="ltr"] > span,
         div[data-testid="cellInnerDiv"] > div > div > button[role="button"] > a[role="link"] > h2 > div svg {
@@ -146,6 +159,11 @@ function applyTheme(themeName) {
         /* ----- TWEET ARTICLE TEXT ----- */
         [data-testid="tweetText"],
         article[data-testid="tweet"] {
+            color: var(--text-color-primary) !important;
+        }
+
+        div[data-testid="sidebarColumn"] section[role="region"] article[tabindex="-1"][data-testid="tweet"] button[aria-label="Grok actions"] svg,
+        div[data-testid="sidebarColumn"] section[role="region"] article[tabindex="-1"][data-testid="tweet"] button[aria-label="More"] svg {
             color: var(--text-color-primary) !important;
         }
 
@@ -178,13 +196,21 @@ function applyTheme(themeName) {
             background-color: var(--text-color-primary) !important;
         }
 
+        /* ----- BOOKMARKS TAB "POST" FIELD BACKGROUND ----- */
+        div[data-testid="sidebarColumn"] div[aria-label="Trending"] div[data-viewportview="true"] > div > div > div > div button[aria-label="Close"] > div > svg,
+        div[data-testid="sidebarColumn"] div[aria-label="Trending"] div[data-viewportview="true"] > div > div > div > div button[aria-label="View post"] > div > svg {
+            color: var(--text-color-primary) !important;
+        }
+
         /* ----- HOVER USER CARD ----- */
         /* ----- FOLLOW BUTTON ----- */
         div[data-testid="hoverCardParent"] button[aria-label*="Follow"] span,
         /* ----- PROFILE SUMMARY SVG ----- */
         div[data-testid="hoverCardParent"] button[role="button"] > div[dir="ltr"] > svg,
         /* ----- PROFILE SUMMARY TEXT ----- */
-        div[data-testid="hoverCardParent"] button[role="button"] > div[dir="ltr"] > span {
+        div[data-testid="hoverCardParent"] button[role="button"] > div[dir="ltr"] > span,
+        /* ----- "FOLLOWED BY" USERNAMES ----- */
+        div[data-testid="hoverCardParent"] div[data-testid="HoverCard"] a[aria-label="Followers you know"] > div div[dir="ltr"] span:not(a) {
             color: var(--text-color-primary) !important;
         }
 
@@ -193,9 +219,14 @@ function applyTheme(themeName) {
             color: var(--text-color-primary) !important;
         }
 
-        /* ----- HOVER USER CARD PRIMARY TEXT ----- */
+        /* ----- HOVER USER CARD DISPLAY NAME TEXT ----- */
         div[data-testid="hoverCardParent"] a[role="link"] div[dir="ltr"] > span {
             color: var(--text-color-primary) !important;
+        }
+        /* ----- HOVER USER CARD DISPLAY NAME TEXT ON HOVER ----- */
+        div[data-testid="hoverCardParent"] a[role="link"]:not([tabindex="-1"]) div[dir="ltr"] > span:hover {
+            text-decoration: underline !important;
+            text-decoration-color: var(--text-color-primary) !important;
         }
 
         /* ----- HOVER USER CARD FOLLOWER/FOLLOWING COUNT ----- */
@@ -249,6 +280,15 @@ function applyTheme(themeName) {
         article[data-testid="tweet"] span[data-testid="app-text-transition-container"] > span > span {
             color: var(--text-color-secondary) !important;
         }
+        
+        /* ----- TWEET IN BOOKMARKS' POSTER USERNAME ----- */
+        /* ----- TWEET IN BOOKMARKS' DOT(.) BEFORE VIEW COUNT  ----- */
+        /* ----- TWEET IN BOOKMARKS' "VIEWS" TEXT ----- */
+        article[data-testid="tweet"][tabindex="-1"] div[data-testid="User-Name"] a[tabindex="-1"] > div[dir="ltr"] > span,
+        article[data-testid="tweet"][tabindex="-1"] div[dir="ltr"][aria-hidden="true"] > span:not(:has(*)),
+        article[data-testid="tweet"][tabindex="-1"] div[dir="ltr"] > span > span > span {
+            color: var(--text-color-secondary) !important;
+        }
 
         /* ----- HOVER USER CARD USERNAME ----- */
         div[data-testid="hoverCardParent"] a[role="link"][tabindex="-1"] div[dir="ltr"] span {
@@ -256,7 +296,8 @@ function applyTheme(themeName) {
         }
 
         /* ----- HOVER USER CARD "FOLLOWS YOU" TEXT ----- */
-        div[data-testid="hoverCardParent"] div > div > div[dir="ltr"] > span {
+        div[data-testid="hoverCardParent"] div > div > div[dir="ltr"] > span,
+        div[data-testid="hoverCardParent"] div[data-testid="HoverCard"] a[aria-label="Followers you know"] > div > div[dir="ltr"] {
             color: var(--text-color-secondary) !important;
         }
 
@@ -325,9 +366,14 @@ function applyTheme(themeName) {
             background-color: color-mix(in srgb, var(--background-main) 92%, var(--text-color-primary) 8%) !important;
         }
 
-        /* ----- TWEET ON HOVER ----- */
+        /* ----- EMBEDDED TWEET ON HOVER ----- */
         div[data-testid="cellInnerDiv"] div > div > article[role="article"][tabindex="0"][data-testid="tweet"] div[tabindex="0"][role="link"] > div:hover {
             background-color: color-mix(in srgb, var(--background-main) 88%, var(--text-color-primary) 12%) !important;
+        }
+
+        /* ----- TWEET ON HOVER ----- */
+        div[data-testid="sidebarColumn"] div[data-testid="cellInnerDiv"]:has(div > div > article[role="article"][tabindex="-1"][data-testid="tweet"]):hover {
+            background-color: transparent !important;
         }
 
         /* ----- TRENDING TAB HOVER EFFECTS ----- */
@@ -343,6 +389,11 @@ function applyTheme(themeName) {
         div[aria-label="Trending"] aside[aria-label="Who to follow"] li[data-testid="UserCell"]:hover,
         div[aria-label="Trending"] aside[aria-label="Who to follow"] a[role="link"]:hover {
             background-color: color-mix(in srgb, var(--background-main) 90%, var(--text-color-primary) 10%) !important;
+        }
+
+        /* ----- BOOKMARKS TAB SEARCH FIELD ----- */
+        div[aria-label="Home timeline"][tabindex="0"] div > div > div {
+            color: var(--text-color-primary) !important;
         }
 
         /* ----- SIDEBAR NAVIGATION ON HOVER BACKGROUND ----- */
@@ -391,6 +442,13 @@ function applyTheme(themeName) {
             background-color: var(--background-main) !important;
         }
 
+        /* ----- POST REPLIES WITHIN BOOKMARKS ----- */
+        div[data-testid="sidebarColumn"] div[aria-label="Trending"][tabindex="0"] section[role="region"] div[data-testid="inline_reply_offscreen"] > div,
+        div[data-testid="sidebarColumn"] div[aria-label="Trending"][tabindex="0"] section[role="region"] div[data-testid="inline_reply_offscreen"] div[data-testid="toolBar"],
+        div[data-testid="sidebarColumn"] div[aria-label="Trending"][tabindex="0"] section[role="region"] div[data-testid="inline_reply_offscreen"] > div > div > div > div > div > div > div > div > div {
+            background-color: var(--background-main) !important;
+        }
+
         /* ----- UNSETTING MAIN USER'S IMAGE CSS PREVIOUSLY OVERRIDDEN BY CSS ABOVE ----- */
         div[aria-label="Home timeline"] div[data-testid*="UserAvatar"] div,
         article[data-testid="tweet"] div[data-testid="Tweet-User-Avatar"] * {
@@ -432,8 +490,18 @@ function applyTheme(themeName) {
         }
 
         /* ----- "CONNECT"/"POST" BACKGROUND UPON CLICKING ----- */
-        div[data-testid="primaryColumn"] > div[aria-label="Home timeline"][tabindex="0"] > div > div > div > div > div > div {
+        div[data-testid="primaryColumn"] > div[aria-label="Home timeline"][tabindex="0"] > div > div > div > div > div > div:not(:has(input[placeholder*="Search"])) {
             background-color: var(--background-main) !important;
+        }
+
+        /* ----- BOOKMARKS TAB SEARCH FIELD BACKGROUND ----- */
+        div[data-testid="primaryColumn"] > div[aria-label="Home timeline"][tabindex="0"] > div > div > div > div:has(input[placeholder*="Search"]) {
+            background-color: var(--background-main) !important;
+        }
+
+        /* ----- BOOKMARKS TAB "POST" FIELD BACKGROUND ----- */
+        div[data-testid="sidebarColumn"] div[aria-label="Trending"] div[data-viewportview="true"] > div > div > div > div {
+            background-color: var(--background-main)33 !important;
         }
 
         /* -------------------------------------- */
