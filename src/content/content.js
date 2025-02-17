@@ -92,7 +92,41 @@ function applyTheme(themeName) {
             color: var(--text-color-primary) !important;
         }
 
+        /* ----- HOME PAGE SEARCH BOX INPUT ----- */
         div[aria-label="Trending"] form[role="search"] input[data-testid="SearchBox_Search_Input"] {
+            color: var(--text-color-primary) !important;
+        }
+
+        /* ----- CONNECT TEXT CONNECT PAGE ----- */
+        div[aria-label="Home timeline"][tabindex="0"] div > h2[dir="ltr"][role="heading"] > span,
+        /* ----- SETTINGS SVG CONNECT PAGE ----- */
+        div[aria-label="Home timeline"][tabindex="0"] a[aria-label="Settings"][role="link"] > div[dir="ltr"] > svg,
+        /* ----- BACK BUTTON CONNECT PAGE ----- */
+        div[aria-label="Home timeline"][tabindex="0"] button[aria-label="Back"][role="button"] > div[dir="ltr"] > svg,
+        div[aria-label="Home timeline"][tabindex="0"] div > div > a[role="link"] > div[dir="ltr"] > svg {
+            color: var(--text-color-primary) !important;
+        }
+
+        /* ----- CONNECT TEXT USER DISPLAY NAME TEXT ----- */
+        div[aria-label="Home timeline"][tabindex="0"] button[data-testid="UserCell"] a > div > div[dir="ltr"] > span > span {
+            color: var(--text-color-primary) !important;
+            text-decoration: none !important;
+        }
+
+        /* ----- CONNECT TEXT USER DISPLAY NAME TEXT ----- */
+        div[aria-label="Home timeline"][tabindex="0"] button[data-testid="UserCell"] a > div > div[dir="ltr"] > span:has(span):hover {
+            text-decoration: underline !important;
+            text-decoration-color: var(--text-color-primary) !important;
+        }
+
+        /* ----- CONNECT TEXT USER BIO TEXT ----- */
+        div[aria-label="Home timeline"][tabindex="0"] button[data-testid="UserCell"] div[dir="auto"] > span:not(a) {
+            color: var(--text-color-primary) !important;
+        }
+
+        /* ----- EXPLORE PAGE RANDOM NOTIFICATION ----- */
+        div[data-testid="cellInnerDiv"] > div > div > button[role="button"] > a[role="link"] > h2 > div[dir="ltr"] > span,
+        div[data-testid="cellInnerDiv"] > div > div > button[role="button"] > a[role="link"] > h2 > div svg {
             color: var(--text-color-primary) !important;
         }
 
@@ -173,6 +207,25 @@ function applyTheme(themeName) {
         div[data-testid="trend"] div[dir="ltr"] span[dir="ltr"] span {
             color: var(--text-color-secondary) !important;
         }
+
+        /* ----- TRENDING TAB "FOLLOWS YOU" MESSAGE ----- */
+        div[aria-label="Trending"] aside[aria-label*="follow"][role="complementary"] li[data-testid="UserCell"] div[dir="ltr"][data-testid="userFollowIndicator"] span {
+            color: var(--text-color-secondary) !important;
+        }
+
+        div[aria-label="Trending"] aside[aria-label*="Relevant"] li[data-testid="UserCell"] div > a[role="link"][tabindex="-1"] > div > div > span {
+            color: var(--text-color-secondary) !important;
+        }
+
+        /* ----- CONNECT TEXT USER DISPLAY NAME TEXT ----- */
+        div[aria-label="Home timeline"][tabindex="0"] button[data-testid="UserCell"] a[tabindex="-1"] > div > div[dir="ltr"] > span {
+            color: var(--text-color-secondary) !important;
+        }
+
+        /* ----- WHO TO FOLLOW USERNAMES ----- */
+        div[aria-label="Trending"] aside[aria-label*="follow"][role="complementary"] li[data-testid="UserCell"] a[tabindex="-1"] > div > div[dir="ltr"] > span {
+            color: var(--text-color-secondary) !important;
+        }
         
         /* ----- ???????????????????? ----- */
         section[aria-labelledby="accessible-list-1"] span[dir="ltr"] {
@@ -226,13 +279,40 @@ function applyTheme(themeName) {
             background-color: var(--background-main) !important;
         }
 
+        div[aria-label="Trending"] > div > div:has(form[aria-label="Search"]) {
+            background-color: var(--background-main) !important;
+        }
+
         /* ----- MAIN TWITTER BACKGROUND ----- */
         body,
         main,
-        div[aria-label="Trending"],
+        div[aria-label*="Trending"],
         div[aria-label="Trending"] > div > div > div:not([data-testid*="UserAvatar"]),
-        [role="region"] {
+        [role="region"][aria-label*="Timeline"] {
             background-color: var(--background-main) !important;
+        }
+
+        /* ----- TWEET ON HOVER ----- */
+        div[data-testid="cellInnerDiv"]:has(div > div > article[role="article"][tabindex="0"][data-testid="tweet"]):hover {
+            background-color: color-mix(in srgb, var(--background-main) 92%, var(--text-color-primary) 8%) !important;
+        }
+
+        /* ----- TWEET ON HOVER ----- */
+        div[data-testid="cellInnerDiv"] div > div > article[role="article"][tabindex="0"][data-testid="tweet"] div[tabindex="0"][role="link"] > div:hover {
+            background-color: color-mix(in srgb, var(--background-main) 88%, var(--text-color-primary) 12%) !important;
+        }
+
+        /* ----- HOVER USER CARD BACKGROUND ----- */
+        div[data-testid="hoverCardParent"] > div > div > div[data-testid="HoverCard"] {
+            background-color: var(--background-main) !important;
+        }
+
+        /* ----- EXPLORE PAGE RANDOM NOTIFICATION ----- */
+        div[data-testid="cellInnerDiv"]:has(div > div > button[role="button"] > a) * {
+            background-color: unset !important;
+        }
+        div[data-testid="cellInnerDiv"]:has(div > div > button[role="button"] > a):hover {
+            background-color: color-mix(in srgb, var(--background-main) 90%, var(--text-color-primary) 10%) !important;
         }
 
         /* ----- SPECIFICALLY FOR POST TWEET REGION ----- */
@@ -242,8 +322,16 @@ function applyTheme(themeName) {
             background-color: var(--background-main) !important;
         }
 
+        /* ----- POST REPLIES WITHIN POST ----- */
+        div[data-testid="primaryColumn"] > div[aria-label="Home timeline"][tabindex="0"] > section[role="region"] div[data-testid="inline_reply_offscreen"] > div,
+        div[data-testid="primaryColumn"] > div[aria-label="Home timeline"][tabindex="0"] > section[role="region"] div[data-testid="inline_reply_offscreen"] div[data-testid="toolBar"],
+        div[data-testid="primaryColumn"] > div[aria-label="Home timeline"][tabindex="0"] > section[role="region"] div[data-testid="inline_reply_offscreen"] > div > div > div > div > div > div > div > div > div {
+            background-color: var(--background-main) !important;
+        }
+
         /* ----- UNSETTING MAIN USER'S IMAGE CSS PREVIOUSLY OVERRIDDEN BY CSS ABOVE ----- */
-        div[aria-label="Home timeline"] div[data-testid*="UserAvatar"] div {
+        div[aria-label="Home timeline"] div[data-testid*="UserAvatar"] div,
+        article[data-testid="tweet"] div[data-testid="Tweet-User-Avatar"] * {
             background-color: unset !important;
         }
 
@@ -252,8 +340,11 @@ function applyTheme(themeName) {
             background-color: var(--background-main) !important;
         }
 
-        /* The search container */
-        form[role="search"] {
+        /* ----- SEARCH CONTAINERS ----- */
+        /* ----- HOME PAGE SEARCH ----- */
+        form[role="search"],
+        /* ----- HOME PAGE SEARCH ----- */
+        div[data-testid="primaryColumn"] > div[aria-label="Home timeline"][tabindex="0"] > div > div > div:not(has:(> div[role="status"] > button[tabindex="-1"])) {
             background-color: var(--background-main) !important;
         }
 
@@ -278,6 +369,11 @@ function applyTheme(themeName) {
                 color: var(--background-main) !important;
         }
 
+        /* ----- "CONNECT"/"POST" BACKGROUND UPON CLICKING ----- */
+        div[data-testid="primaryColumn"] > div[aria-label="Home timeline"][tabindex="0"] > div > div > div > div > div > div {
+            background-color: var(--background-main) !important;
+        }
+
         /* -------------------------------------- */
         /* ----- SECONDARY BACKGROUND COLOR ----- */
         /* -------------------------------------- */
@@ -294,6 +390,10 @@ function applyTheme(themeName) {
         /* ----- TERTIARY BACKGROUND COLOR ----- */
         /* ------------------------------------- */
 
+        /* ----- TRENDING TAB "FOLLOWS YOU" MESSAGE ----- */
+        div[aria-label="Trending"] aside[aria-label*="follow"][role="complementary"] li[data-testid="UserCell"] div[dir="ltr"][data-testid="userFollowIndicator"] {
+            background-color: var(--background-tertiary) !important;
+        }
 
         /* -------------------------- */
         /* ----- MISCHELLANEOUS ----- */
@@ -307,14 +407,40 @@ function applyTheme(themeName) {
             color: #FFD700 !important;
         }
 
-        /* Brand colors & interactions */
-        [data-testid="like"] {
+        /* ----- POST REPLY, LIKES, RETWEET BUTTON COLORS ----- */
+        article[data-testid="tweet"] div[role="group"] button[data-testid="reply"]:hover > div[dir="ltr"] svg,
+        article[data-testid="tweet"] div[role="group"] button[data-testid="reply"]:hover > div[dir="ltr"] span {
+            color: var(--color-blue-primary) !important;
+        }
+
+        article[data-testid="tweet"] div[role="group"] button[data-testid="like"]:hover > div[dir="ltr"] svg,
+        article[data-testid="tweet"] div[role="group"] button[data-testid="like"]:hover > div[dir="ltr"] span {
             color: var(--color-red-like) !important;
         }
 
-        [data-testid="retweet"] {
+        article[data-testid="tweet"] div[role="group"] button[data-testid="unlike"] > div[dir="ltr"] svg,
+        article[data-testid="tweet"] div[role="group"] button[data-testid="unlike"] > div[dir="ltr"] span {
+            color: var(--color-red-like) !important;
+        }
+            
+        article[data-testid="tweet"] div[role="group"] button[data-testid="retweet"]:hover > div[dir="ltr"] svg,
+        article[data-testid="tweet"] div[role="group"] button[data-testid="retweet"]:hover > div[dir="ltr"] span {
             color: var(--color-green-repost) !important;
         }
+
+        article[data-testid="tweet"] div[role="group"] button[data-testid="unretweet"] > div[dir="ltr"] svg,
+        article[data-testid="tweet"] div[role="group"] button[data-testid="unretweet"] > div[dir="ltr"] span {
+            color: var(--color-green-repost) !important;
+        }
+
+        article[data-testid="tweet"] div[role="group"] button[data-testid="bookmark"]:hover > div[dir="ltr"] svg,
+        article[data-testid="tweet"] div[role="group"] button[data-testid="bookmark"]:hover > div[dir="ltr"] span {
+            color: var(--color-blue-primary) !important;
+        }
+
+        // [data-testid="retweet"] {
+        //     color: var(--color-green-repost) !important;
+        // }
 
         /* Chat elements inherit the secondary background */
         [data-testid="DMDrawer"],
