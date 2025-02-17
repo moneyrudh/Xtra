@@ -160,7 +160,16 @@ function applyTheme(themeName) {
         }
 
         /* ----- MAIN USER DISPLAY NAME BOTTOM LEFT SCREEN ----- */
-        button[aria-label="Account menu"] div[dir="ltr"] span {
+        header[role="banner"] button[aria-label="Account menu"][data-testid="SideNav_AccountSwitcher_Button"] div[dir="ltr"] span {
+            color: var(--text-color-primary) !important;
+        }
+        header[role="banner"] button[aria-label="Account menu"][data-testid="SideNav_AccountSwitcher_Button"] > div > svg {
+            color: var(--text-color-primary) !important;
+        }
+        
+        /* ----- (contd.) MAIN ACCOUNT SIDEBAR ON ... CLICK TEXT ----- */
+        div[id="layers"] div[role="group"][tabindex="0"] > div > div > div[data-testid="HoverCard"] > div > div > a[data-testid="AccountSwitcher_AddAccount_Button"] > div > div > span,
+        div[id="layers"] div[role="group"][tabindex="0"] > div > div > div[data-testid="HoverCard"] > div > div > a[data-testid="AccountSwitcher_Logout_Button"] > div > div > span {
             color: var(--text-color-primary) !important;
         }
 
@@ -292,6 +301,25 @@ function applyTheme(themeName) {
             background-color: var(--background-main) !important;
         }
 
+        /* ----- MAIN ACCOUNT SIDEBAR ON HOVER ----- */
+        header[role="banner"] button[aria-label="Account menu"][data-testid="SideNav_AccountSwitcher_Button"]:hover {
+            background-color: color-mix(in srgb, var(--background-main) 90%, var(--text-color-primary) 10%) !important;
+        }
+        /* ----- (contd.) MAIN ACCOUNT SIDEBAR ON ... CLICK ----- */
+        div[id="layers"] div[role="group"][tabindex="0"] > div > div > div[data-testid="HoverCard"]:has(> svg) {
+            background-color: var(--background-main) !important;
+        }
+        /* ----- (contd.) MAIN ACCOUNT SIDEBAR ON ... CLICK SVG ----- */
+        div[id="layers"] div[role="group"][tabindex="0"] > div > div > div[data-testid="HoverCard"] > svg {
+            color: var(--background-main) !important;
+            filter: drop-shadow(-1px -2px 1px rgba(0, 0, 0, 0.1)) !important;
+        }
+        /* ----- (contd.) MAIN ACCOUNT SIDEBAR ON ... CLICK BACKGROUND ----- */
+        div[id="layers"] div[role="group"][tabindex="0"] > div > div > div[data-testid="HoverCard"] > div > div > a[data-testid="AccountSwitcher_AddAccount_Button"]:hover,
+        div[id="layers"] div[role="group"][tabindex="0"] > div > div > div[data-testid="HoverCard"] > div > div > a[data-testid="AccountSwitcher_Logout_Button"]:hover {
+            background-color: color-mix(in srgb, var(--background-main) 90%, var(--text-color-primary) 10%) !important;
+        }
+
         /* ----- TWEET ON HOVER ----- */
         div[data-testid="cellInnerDiv"]:has(div > div > article[role="article"][tabindex="0"][data-testid="tweet"]):hover {
             background-color: color-mix(in srgb, var(--background-main) 92%, var(--text-color-primary) 8%) !important;
@@ -300,6 +328,40 @@ function applyTheme(themeName) {
         /* ----- TWEET ON HOVER ----- */
         div[data-testid="cellInnerDiv"] div > div > article[role="article"][tabindex="0"][data-testid="tweet"] div[tabindex="0"][role="link"] > div:hover {
             background-color: color-mix(in srgb, var(--background-main) 88%, var(--text-color-primary) 12%) !important;
+        }
+
+        /* ----- TRENDING TAB HOVER EFFECTS ----- */
+        /* ----- *DON'T* ADD HOVER TO EXPLORE HEADER ----- */
+        div[aria-label="Trending"] section[role="region"] > div > div > div:not(:has(> div > div > h2[role="heading"])):hover,
+        /* ----- EXPLORE USERS ----- */
+        div[aria-label="Trending"] div > div[data-testid="placementTracking"] > button:hover,
+        /* ----- UPGRADE TO PREMIUM BUTTON ----- */
+        div[aria-label="Trending"] aside[aria-label*="Upgrade to Premium"] > a:hover,
+        /* ----- RELEVANT PEOPLE USER LIST ----- */
+        div[aria-label="Trending"] aside[aria-label="Relevant people"] li[data-testid="UserCell"]:hover,
+        /* ----- WHO TO FOLLOW USER LIST ----- */
+        div[aria-label="Trending"] aside[aria-label="Who to follow"] li[data-testid="UserCell"]:hover,
+        div[aria-label="Trending"] aside[aria-label="Who to follow"] a[role="link"]:hover {
+            background-color: color-mix(in srgb, var(--background-main) 90%, var(--text-color-primary) 10%) !important;
+        }
+
+        /* ----- SIDEBAR NAVIGATION ON HOVER BACKGROUND ----- */
+        nav[role="navigation"] > [data-testid*="AppTabBar_"][role="link"] > div:hover,
+        nav[role="navigation"] > [data-testid*="AppTabBar_"][role="button"] > div:hover {
+            background-color: color-mix(in srgb, var(--background-main) 90%, var(--text-color-primary) 10%) !important;
+        }
+
+        /* ----- SIDEBAR NAVIGATION NOTIFICATION SVGS ----- */
+        a[data-testid*="AppTabBar_"] > div > div > div[dir="ltr"][aria-live="polite"] > span {
+            color: var(--background-main) !important;
+        }
+        a[data-testid*="AppTabBar_"] > div > div > div[dir="ltr"][aria-live="polite"] {
+            border-color: var(--background-main) !important;
+        }
+
+        /* ----- TRANSPARENT TWEET BACKGROUNDS ----- */
+        article[role="article"][data-testid="tweet"] {
+            background-color: transparent !important;
         }
 
         /* ----- HOVER USER CARD BACKGROUND ----- */
