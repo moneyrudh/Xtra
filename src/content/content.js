@@ -234,6 +234,11 @@ function applyTheme(themeName) {
             color: var(--text-color-primary) !important;
         }
 
+        /* ----- HOVER USER CARD FOLLOWER/FOLLOWING COUNT ----- */
+        div[aria-label="Embedded video"][data-testid="previewInterstitial"] > div > div > div[dir="ltr"] > span {
+            color: white !important;
+        }
+
         /* -------------------------------- */
         /* ----- SECONDARY TEXT COLOR ----- */
         /* -------------------------------- */
@@ -306,6 +311,11 @@ function applyTheme(themeName) {
             color: var(--text-color-secondary) !important;
         }
 
+        /* ----- QUOTE RETWEET TEXT ----- */
+        article[data-testid="tweet"] div[role="link"] > div > div:not(:has(div[data-testid="Tweet-User-Avatar"])) div[dir="ltr"]:has(> span > span) {
+            color: var(--text-color-secondary) !important;
+        }
+
         /* ------------------------------- */
         /* ----- TERTIARY TEXT COLOR ----- */
         /* ------------------------------- */
@@ -371,7 +381,17 @@ function applyTheme(themeName) {
             background-color: color-mix(in srgb, var(--background-main) 88%, var(--text-color-primary) 12%) !important;
         }
 
-        /* ----- TWEET ON HOVER ----- */
+        /* ----- READERS CONTEXT HEADER ----- */
+        div[data-testid="cellInnerDiv"] div > div > article[role="article"][tabindex="0"][data-testid="tweet"] div[data-testid="birdwatch-pivot"] > div:has(svg[data-testid="icon-birdwatch-fill"]) {
+            background-color: color-mix(in srgb, var(--background-main) 95%, var(--text-color-primary) 5%) !important;
+        }
+
+        /* ----- READERS CONTEXT ON HOVER ----- */
+        div[data-testid="cellInnerDiv"] div > div > article[role="article"][tabindex="0"][data-testid="tweet"] div[data-testid="birdwatch-pivot"]:hover > *:not(:has(svg[data-testid="icon-birdwatch-fill"])) {
+            background-color: color-mix(in srgb, var(--background-main) 92%, var(--text-color-primary) 8%) !important;
+        }
+
+        /* ----- BOOKMARKED TWEET ON HOVER ----- */
         div[data-testid="sidebarColumn"] div[data-testid="cellInnerDiv"]:has(div > div > article[role="article"][tabindex="-1"][data-testid="tweet"]):hover {
             background-color: transparent !important;
         }
@@ -446,6 +466,18 @@ function applyTheme(themeName) {
         div[data-testid="sidebarColumn"] div[aria-label="Trending"][tabindex="0"] section[role="region"] div[data-testid="inline_reply_offscreen"] > div,
         div[data-testid="sidebarColumn"] div[aria-label="Trending"][tabindex="0"] section[role="region"] div[data-testid="inline_reply_offscreen"] div[data-testid="toolBar"],
         div[data-testid="sidebarColumn"] div[aria-label="Trending"][tabindex="0"] section[role="region"] div[data-testid="inline_reply_offscreen"] > div > div > div > div > div > div > div > div > div {
+            background-color: var(--background-main) !important;
+        }
+
+        /* ----- POST CONVERSATION UPON CLICKING IMAGE ----- */
+        div[role="group"] > div[aria-labelledby="modal-header"] > div > div[data-viewportview="true"] > section[role="region"] > div[aria-label="Timeline: Conversation"] {
+            background-color: var(--background-main) !important;
+        }
+
+        /* ----- POST CONVERSATION USER REPLIES ----- */
+        div[role="group"] > div[aria-labelledby="modal-header"] > div > div[data-viewportview="true"] > section[role="region"] div[data-testid="inline_reply_offscreen"] > div,
+        div[role="group"] > div[aria-labelledby="modal-header"] > div > div[data-viewportview="true"] > section[role="region"] div[data-testid="inline_reply_offscreen"] div[data-testid="toolBar"],
+        div[role="group"] > div[aria-labelledby="modal-header"] > div > div[data-viewportview="true"] > section[role="region"] div[data-testid="inline_reply_offscreen"] > div > div > div > div > div > div > div > div > div {
             background-color: var(--background-main) !important;
         }
 
@@ -537,7 +569,9 @@ function applyTheme(themeName) {
             color: #FFD700 !important;
         }
 
+        /* ---------------------------------------------------- */
         /* ----- POST REPLY, LIKES, RETWEET BUTTON COLORS ----- */
+        /* ---------------------------------------------------- */
         article[data-testid="tweet"] div[role="group"] button[data-testid="reply"]:hover > div[dir="ltr"] svg,
         article[data-testid="tweet"] div[role="group"] button[data-testid="reply"]:hover > div[dir="ltr"] span {
             color: var(--color-blue-primary) !important;
@@ -566,6 +600,64 @@ function applyTheme(themeName) {
         article[data-testid="tweet"] div[role="group"] button[data-testid="bookmark"]:hover > div[dir="ltr"] svg,
         article[data-testid="tweet"] div[role="group"] button[data-testid="bookmark"]:hover > div[dir="ltr"] span {
             color: var(--color-blue-primary) !important;
+        }
+
+        /* --------------------------------------------------------------------- */
+        /* ----- POST REPLY, LIKES, RETWEET BUTTON COLORS ON IMAGE PREVIEW ----- */
+        /* --------------------------------------------------------------------- */
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="reply"] > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="reply"] > div[dir="ltr"] span {
+            color: white !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="like"] > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="like"] > div[dir="ltr"] span {
+            color: white !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="like"]:hover > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="like"]:hover > div[dir="ltr"] span {
+            color: var(--color-red-like) !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="unlike"] > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="unlike"] > div[dir="ltr"] span {
+            color: var(--color-red-like) !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="unlike"]:hover > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="unlike"]:hover > div[dir="ltr"] span {
+            color: var(--color-red-like) !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="retweet"] > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="retweet"] > div[dir="ltr"] span {
+            color: white !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="retweet"]:hover > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="retweet"]:hover > div[dir="ltr"] span {
+            color: var(--color-green-repost) !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="unretweet"] > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="unretweet"] > div[dir="ltr"] span {
+            color: var(--color-green-repost) !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="unretweet"]:hover > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[data-testid="unretweet"]:hover > div[dir="ltr"] span {
+            color: var(--color-green-repost) !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] a[aria-label*="views"] > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] a[aria-label*="views"] > div[dir="ltr"] span {
+            color: white !important;
+        }
+
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[aria-label="Share post"] > div[dir="ltr"] svg,
+        div[role="group"][tabindex="0"] > div[aria-labelledby="modal-header"] > div > div:not(:has(article[data-testid="tweet"])) div[role="group"] button[aria-label="Share post"] > div[dir="ltr"] span {
+            color: white !important;
         }
 
         // [data-testid="retweet"] {
