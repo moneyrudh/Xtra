@@ -418,7 +418,12 @@ function applyTheme(themeName) {
 
         /* ----- SIDEBAR NAVIGATION ON HOVER BACKGROUND ----- */
         nav[role="navigation"] > [data-testid*="AppTabBar_"][role="link"] > div:hover,
-        nav[role="navigation"] > [data-testid*="AppTabBar_"][role="button"] > div:hover {
+        nav[role="navigation"] > [data-testid*="AppTabBar_"][role="button"] > div:hover,
+        nav[role="navigation"] > a[aria-label="Grok"] > div:hover,
+        nav[role="navigation"] > a[data-testid="premium-hub-tab"] > div:hover,
+        nav[role="navigation"] > a[aria-label="Bookmarks"] > div:hover,
+        nav[role="navigation"] > a[aria-label="Communities"] > div:hover,
+        nav[role="navigation"] > a[data-testid="vo-signup-tab"] > div:hover {
             background-color: color-mix(in srgb, var(--background-main) 90%, var(--text-color-primary) 10%) !important;
         }
 
@@ -542,7 +547,6 @@ function applyTheme(themeName) {
 
         /* Side sections, composer, chat backgrounds */
         [data-testid="primaryColumn"],
-        [data-testid="DMDrawer"],
         [role="complementary"],
         [data-testid="sidebarColumn"] {
             background-color: var(--background-second) !important;
@@ -664,12 +668,46 @@ function applyTheme(themeName) {
         //     color: var(--color-green-repost) !important;
         // }
 
-        /* Chat elements inherit the secondary background */
-        [data-testid="DMDrawer"],
-        [data-testid="DM_conversation"] {
-            background-color: var(--background-second) !important;
-            color: var(--chat-text) !important;
+        /* -------------------- */
+        /* ----- MESSAGES ----- */
+        /* -------------------- */
+
+        /* ----- MESSAGES PRIMARY TEXT ----- */
+        div[data-testid="DMDrawer"] div[data-testid="DMDrawerHeader"] h2[role="heading"] > div > div > span > span,
+        /* ----- NEW MESSAGE SVG ----- */
+        div[data-testid="DMDrawer"] div[data-testid="DMDrawerHeader"] button[aria-label="Compose new Message"] > div[dir="ltr"] > svg,
+        /* ----- COLLAPSE MESSAGES SVG ----- */
+        div[data-testid="DMDrawer"] div[data-testid="DMDrawerHeader"] button[aria-label="Collapse"] > div[dir="ltr"] > svg,
+        /* ----- MESSAGE REQUESTS SVG ----- */
+        div[data-testid="DMDrawer"] section[role="region"] > div > div[role="tablist"] > div > div:has(> a[data-testid="pivot"]) div[data-testid="DM_Untrusted_Thumbnail"] > div > svg,
+        /* ----- MESSAGE REQUESTS TEXT ----- */
+        div[data-testid="DMDrawer"] section[role="region"] > div > div[role="tablist"] > div > div > a[data-testid="pivot"] > div > div:not(:has(> div[data-testid="DM_Untrusted_Thumbnail"])) > div > span,
+        /* ----- DM CONVERSATION TITLE ----- */
+        div[data-testid="DMDrawer"] section[role="region"] div[data-testid="cellInnerDiv"] div[data-testid="conversation"] div[data-testid="DMGroupConversationTitle"] > span,
+        /* ----- DM CONVERSATION USER DISPLAY NAME ----- */
+        div[data-testid="DMDrawer"] section[role="region"] div[data-testid="cellInnerDiv"] div[data-testid="conversation"] div > div[dir="ltr"] > span > span,
+        div[data-testid="DMDrawer"] section[role="region"] div[data-testid="cellInnerDiv"] div[data-testid="conversation"] div:has(time) > div > div > div > div > div[dir="ltr"] > span > span {
+            color: var(--text-color-primary) !important;
         }
+
+        /* ----- DM CONVERSATION USERNAME  ----- */
+        div[data-testid="DMDrawer"] section[role="region"] div[data-testid="cellInnerDiv"] div[data-testid="conversation"] div[aria-hidden="true"]:not([data-testid="DMGroupConversationTitle"]) > span,
+        /* ----- DM CONVERSATION TIME ----- */
+        div[data-testid="DMDrawer"] section[role="region"] div[data-testid="cellInnerDiv"] div[data-testid="conversation"] div:not([data-testid="DMGroupConversationTitle"]) > time,
+        /* ----- DM CONVERSATION TIME ----- */
+        div[data-testid="DMDrawer"] section[role="region"] div[data-testid="cellInnerDiv"] div[data-testid="conversation"] div > div[tabindex="-1"] > div > div[dir="ltr"] > span,
+        div[data-testid="DMDrawer"] section[role="region"] div[data-testid="cellInnerDiv"] div[data-testid="conversation"] > div > div > div > div > div:not(:has(time)) > div[dir="ltr"]:not([data-testid="DMGroupConversationTitle"]):has(> span),
+        div[data-testid="DMDrawer"] section[role="region"] div[data-testid="cellInnerDiv"] div[data-testid="conversation"] > div > div > div > div > div:not(:has(time)) > div[dir="ltr"]:not([data-testid="DMGroupConversationTitle"]) > span > span {
+            color: var(--text-color-secondary) !important;
+        }
+
+        /* ----- MESSAGES BACKGROUND ----- */
+        div[data-testid="DMDrawer"] div[data-testid="DMDrawerHeader"] > div > div > div,
+        div[data-testid="DMDrawer"] div[data-testid="DMDrawerHeader"] section[role="region"] > div > div[role="tablist"] > div > div:has(> a[data-testid="pivot"]),
+        div[data-testid="DMDrawer"] div[data-testid="DMDrawerHeader"] section[role="region"] > div > div[role="tablist"] > div[data-testid="cellInnerDiv"]:has(div[data-testid="conversation"]) {
+            background-color: var(--background-main) !important;
+        }
+        
     `;
 }
 
